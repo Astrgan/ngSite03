@@ -28,3 +28,19 @@
 
 }
 
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  z-index: 3;
+  color: grey;
+  background-color: white;
+  border-color: #1e262d;
+}
+.pagination > li > a
+{
+  z-index: 3;
+  color: grey;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: #1e262d;
+}
