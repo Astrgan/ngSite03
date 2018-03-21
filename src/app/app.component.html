@@ -1,8 +1,6 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 mr-0">
-
-
+  <div class="row">
+    <div class="col-12">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,104 +40,90 @@
           <!--</form>-->
         </div>
       </nav>
-
-
-
-      <div class="row justify-content-center  ml-0">
-        <div class="col left-panel bg-dark">
-
-
-
-          <body class="text-center">
-          По жанрам
-          </body>
-          <table class="table table-hover table-inverse">
-            <tbody>
-
-            <tr> <td>Боевики</td></tr>
-            <tr> <td>Вестерны</td></tr>
-            <tr> <td>Военные фильмы</td></tr>
-            <tr> <td>Детективы</td></tr>
-            <tr> <td>Драмы</td></tr>
-            <tr> <td>Комедии</td></tr>
-            <tr> <td>Криминал</td></tr>
-            <tr> <td>Мелодрамы</td></tr>
-            <tr> <td>Мультфишьмы</td></tr>
-            <tr> <td>Ужасы</td></tr>
-            <tr> <td>Фантастика</td></tr>
-            <tr> <td>Фэнтези</td></tr>
-            <tr> <td>Триллеры</td></tr>
-            </tbody>
-          </table>
-
-
-
-        </div>
-        <div class="col-9">
-
-
-          <app-movie-card *ngFor="let film of films" [film]="film" ></app-movie-card>
-
-
-
-
-        </div>
-      </div>
-      <div class="col-12">
-
-
-        <nav aria-label="...">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">&laquo;</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">... <span class="sr-only">(current)</span></a>
-            </li>
-
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">3 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">4<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">5<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">6</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">6<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">7</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">7<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">8</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">8<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">9</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">9 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">&raquo;</a>
-            </li>
-          </ul>
-        </nav>
-
-
-
-
-      </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <body class="text-center">
+      По жанрам
+      </body>
+      <table class="table table-hover table-inverse">
+        <tbody>
+
+        <tr> <td>Боевики</td></tr>
+        <tr> <td>Вестерны</td></tr>
+        <tr> <td>Военные фильмы</td></tr>
+        <tr> <td>Детективы</td></tr>
+        <tr> <td>Драмы</td></tr>
+        <tr> <td>Комедии</td></tr>
+        <tr> <td>Криминал</td></tr>
+        <tr> <td>Мелодрамы</td></tr>
+        <tr> <td>Мультфишьмы</td></tr>
+        <tr> <td>Ужасы</td></tr>
+        <tr> <td>Фантастика</td></tr>
+        <tr> <td>Фэнтези</td></tr>
+        <tr> <td>Триллеры</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-9">
+      <app-movie-card *ngFor="let film of films" [film]="film" ></app-movie-card>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">... <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">3 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">4<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">5</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">5<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">6</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">6<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">7</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">7<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">8</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">8<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">9</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">9 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">&raquo;</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+
 </div>
