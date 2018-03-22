@@ -7,18 +7,17 @@
 .pagination > li > span:hover {
   z-index: 3;
   color: grey;
-  background-color: #30363B;
+  background-color: #1e262d;
   border-color: #1e262d;
 }
 .pagination > li > a {
   z-index: 3;
   color: grey;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #30363B;
   border-color: #1e262d;
 }
-.container-fluid
+.container
 {
-  background:url(https://www.film.ru/sites/default/files/movies/posters/18855943-1017845.jpg);
   background-attachment:fixed;
   background-size:cover;
   width:100%;
