@@ -8,11 +8,11 @@ export class FilmsService {
   CHAT_URL = "ws://localhost:8080/MovieServer/ws";
   films =
     [
-      {name_film: 'Film 1'},
-      {name_film: 'Film 2'},
-      {name_film: 'Film 3'},
-      {name_film: 'Film 4'},
-      {name_film: 'Film 5'},
+      {name_film: 'Всеобъемлющий пиздец'},
+      {name_film: 'Ужасы шайтана'},
+      {name_film: 'Пиздюля'},
+      {name_film: 'Последний пузырь'},
+      {name_film: 'Приключения недоносков'},
 
     ];
 
