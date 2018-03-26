@@ -1,4 +1,6 @@
-<script src="video.js"></script>
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-12 bg-dark">
@@ -46,10 +48,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-3 pt-3">
+    <div class="col-sm-3 pt-3">0
 
 
-      <ul class="nav flex-column bg-dark">
+      <ul class="nav flex-column sub rounded bg-dark">
         <li class="nav-item">
           <a class="nav-link disabled" href="#">По жанрам</a>
         </li>
@@ -111,11 +113,11 @@
 
 
     </div>
-    <div class="col-sm-9 bg-dark my-3 text-white">
+    <div class="col-sm-9  my-3   text-white">
 
 
-      <div id="instructions">
-
+      <div class="col-sm-12  pt-3 text-white sub bg-dark">
+        <script src="video.js"></script>
         <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px" data-setup ='{}'
                controls preload="none" poster='http://content.bitsontherun.com/thumbs/3XnJSIm4-480.jpg'
                data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
@@ -123,7 +125,8 @@
           <source src="//content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm" type="video/webm">
           <track label="pt" kind="captions" srclang="pt" src="http://playertest.longtailvideo.com/caption-files/sintel-en.srt" default="">
         </video>
-
+      </div>
+      <div class="col-sm-12  my-3  sub text-white bg-dark">
         <p>Custom skin for <a href="http://www.videojs.com" target="_blank">video.js</a>. Requires v5.0.0 or higher.</p>
 
         <h2>HOW TO CUSTOMIZE:</h2>
@@ -142,7 +145,7 @@
         </ol>
         <textarea id="css_result"></textarea>
         <button id="refresh">Refresh</button>
-      </div>
+
 
       <style>
         #instructions { max-width: 640px; text-align: left; margin: 30px auto; }
@@ -169,7 +172,7 @@
         a, a:hover, a:visited { color: #76DAFF; }
       </style>
 
-
+      </div>
 
 
 
