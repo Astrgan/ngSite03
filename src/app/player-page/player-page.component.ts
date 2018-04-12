@@ -25,16 +25,23 @@ export class PlayerPageComponent implements OnInit, OnDestroy {
   ngOnInit(){
 
 
-    this.subscription = this.filmsService.wsSubject.subscribe((msg)=>{
+    this.subscription = this.filmsService.subject.subscribe((msg)=>{
       let films: any = msg;
       this.film = films[0];
 
     });
 
+
+
     let filmFilter: Film = new Film();
     filmFilter.id = this.filmID;
     filmFilter.year = 0;
-    this.filmsService.wsSubject.next(JSON.stringify(filmFilter));
+
+    let obj = {
+      "command":"select",
+      "value": filmFilter
+    };
+    this.filmsService.subject.next(JSON.stringify(obj));
 
   }
 

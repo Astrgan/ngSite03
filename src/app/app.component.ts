@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {FilmsService} from './films.service';
-import {Film} from "./film";
 
 
 @Component({
@@ -11,28 +10,13 @@ import {Film} from "./film";
 })
 export class AppComponent {
 
-  year: any = "Год";
 
-  constructor(private filmsService: FilmsService){}
+  constructor(){}
 
-  getFilmsForYear(event){
-    let filmFilter: Film = new Film();
+  // sendMsg() {
+  //   this.filmsService.subject.next(JSON.stringify({ op: 'hello' }));
+  //
+  // }
 
-    if(event.textContent != "Все") {
-
-      this.year = event.textContent;
-      filmFilter.id = 0;
-      filmFilter.year = Number(this.year);
-      this.filmsService.wsSubject.next(JSON.stringify(filmFilter));
-
-    }else {
-
-      this.year = "Год";
-      filmFilter.id = 0;
-      filmFilter.year = 0;
-      this.filmsService.wsSubject.next(JSON.stringify(filmFilter));
-
-    }
-  }
 
 }
