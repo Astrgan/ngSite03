@@ -32,6 +32,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
       this.maxPage = this.filmsService.pages;
       this.numbers = Array.from({ length: this.filmsService.pages }, (v, k) => k + 1);
       this.currentPage = this.filmsService.currentPage;
+      console.log("begin" + this.biganPages());
       this.numbersActive = this.numbers.splice( this.biganPages(), this.length);
 
       console.log(this.numbersActive);
@@ -44,9 +45,12 @@ export class PaginationComponent implements OnInit, OnDestroy {
 
   biganPages() {
     let index: number;
+    console.log("страницы: " + this.numbers.length);
     index = this.numbers.length - this.currentPage + 1;
+
     if (this.numbers.length < this.length) { return 0; }
-    if (index < this.length ) { return (this.currentPage + 1 - (this.length - index)) - this.numSelector; }
+    if (index < this.length ) { console.log("2-var"); return (this.currentPage + 1 - (this.length - index)) - 3;}
+    console.log("3-var");
     return this.currentPage + 1 > this.numSelector ? this.currentPage + 1 - this.numSelector : 0;
   }
 

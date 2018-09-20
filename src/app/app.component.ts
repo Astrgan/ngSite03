@@ -6,6 +6,7 @@ import {Lists} from './movies/Lists';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from './users/user.service';
 
+declare var $:any;
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import {UserService} from './users/user.service';
   styleUrls: ['./app.component.scss'],
   providers: [FilmsService, UserService]
 })
+
 export class AppComponent implements OnInit {
   private subscription: Subscription;
   genres: any;
@@ -25,7 +27,6 @@ export class AppComponent implements OnInit {
   constructor(private filmsService: FilmsService, private  userService: UserService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-
     this.subscription = this.filmsService.listsSubject.subscribe((msg) => {
       const lists: Lists =  msg;
       this.genres = lists.jsonAllGenres;
@@ -88,26 +89,30 @@ export class AppComponent implements OnInit {
 
   getNewFilms() {
     this.router.navigate([``], { relativeTo: this.route });
-    const filmFilter: Film  = this.filmsService.filterFilm;
+    const filmFilter: Film = new Film();
+    this.filmsService.filterFilm = filmFilter;
+
     filmFilter.year = Number('2018');
     filmFilter.antiGenres = ['Мультфильм'];
     this.filmsService.getFilms();
 
     filmFilter.year = 0;
     filmFilter.antiGenres = [''];
-
+    this.activeGenre = 'Все';
 
   }
 
   getNewCartoon() {
     console.log('getNewCartoon');
     this.router.navigate([``], { relativeTo: this.route });
-    const filmFilter: Film  = this.filmsService.filterFilm;
+    const filmFilter: Film = new Film();
+    this.filmsService.filterFilm = filmFilter;
     filmFilter.year = Number('2018');
     filmFilter.genres = ['Мультфильм'];
     this.filmsService.getFilms();
 
     filmFilter.year = 0;
     filmFilter.genres = [''];
+    this.activeGenre = 'Все';
   }
 }

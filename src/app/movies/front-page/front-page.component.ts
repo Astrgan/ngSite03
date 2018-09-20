@@ -20,7 +20,10 @@ export class FrontPageComponent implements OnInit, OnDestroy {
       this.films = msg;
 
     });
+    const filmFilter: Film  = this.filmsService.filterFilm;
+    filmFilter.year = Number("2018");
     this.filmsService.getFilms();
+    filmFilter.year = 0;
 
   }
 

@@ -51,7 +51,8 @@ export class FilmsService {
 
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
+        'Content-Type':  'application/json',
+        'Accept-Encoding': 'gzip'
       })
     };
 
@@ -72,6 +73,7 @@ export class FilmsService {
     this.currentPage = 0;
     this.films = msg;
     this.pages = Math.ceil(this.films.length / this.numSelector);
+    console.log("length: " + this.films.length);
     this.pageSubject.next(this.films.slice(this.currentPage, this.numSelector));
 
   }
