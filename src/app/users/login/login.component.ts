@@ -1,7 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {Subscription} from 'rxjs/Subscription';
-import {MyUrl} from '../../my-url';
+import {HttpClient} from "@angular/common/http";
+import {LocationService} from "../../location.service";
+
 
 @Component({
   selector: 'app-login',
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       } else {
         localStorage.setItem('token', msg.token);
 
-        const url = new URL(MyUrl.URL);
+        // const url = new URL(this.location.URL);
         window.location.assign("/");
       }
     });

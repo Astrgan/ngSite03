@@ -1,6 +1,7 @@
 import {Comment} from '../users/comment';
 
 export class Film {
+  public host: string;
   public limit = "0";
   public id = 0;
   public name;

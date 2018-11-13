@@ -2,12 +2,14 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Subject} from 'rxjs/Subject';
 import {Comment} from './comment';
-import {MyUrl} from '../my-url';
+import {LocationService} from "../location.service";
+
 
 @Injectable()
 export class UserService {
 
-  URL = MyUrl.URL + '/users';
+  URL: string;
+  // URL = MyUrl.URL + '/users';
   // URL = "http://astrgan.asuscomm.com:8086/MovieServer/rest/users";
   // URL = "http://localhost:8080/MovieServer/rest/users";
 
@@ -18,7 +20,9 @@ export class UserService {
   public statusAuth = 0;
   public commentStatus: Subject<any>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private location: LocationService){
+
+    this.URL = this.location.URL + '/users';
     this.messageSubject = new Subject();
     this.authSubject = new Subject();
     this.commentStatus = new Subject();
@@ -73,7 +77,7 @@ export class UserService {
 
     const commentJSON: Comment = new Comment(comment, this.token, id_film);
 
-    this.http.post(MyUrl.URL + '/comment', JSON.stringify(commentJSON), httpOptions).subscribe(
+    this.http.post(this.location.URL + '/comment', JSON.stringify(commentJSON), httpOptions).subscribe(
       (data: any[]) => {
 
         console.log(data);

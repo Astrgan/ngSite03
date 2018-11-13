@@ -26,6 +26,7 @@ import { ContainerPanelAuthComponent } from './users/container-panel-auth/contai
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { SafePipe } from './movies/safe-pipe.pipe';
+import {LocationService} from "./location.service";
 // import { ErrorSearchComponent } from './movies/error-search/error-search.component';
 
 const routes = [
@@ -70,7 +71,7 @@ const routes = [
     MessagesModule,
     MessageModule
   ],
-  providers: [],
+  providers: [LocationService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

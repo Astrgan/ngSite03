@@ -5,8 +5,6 @@ import {Subject} from 'rxjs/Subject';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Lists} from './Lists';
 import {MyUrl} from '../my-url';
-import {WebSocketSubject} from "rxjs/observable/dom/WebSocketSubject";
-import {Observable} from "rxjs";
 
 
 
@@ -14,8 +12,7 @@ import {Observable} from "rxjs";
 export class FilmsService {
   URL = MyUrl.URL + '/films';
   films: Film[];
-  URLws = 'ws://localhost:8080/MovieServer_war_exploded/ws';
-  public wsSubject: WebSocketSubject<Object>;
+
   public pageSubject: Subject<any>;
   public pages: number;
   public currentPage: number;
@@ -27,16 +24,6 @@ export class FilmsService {
   public lists: Lists;
 
   constructor(private http: HttpClient) {
-
-    this.wsSubject = Observable.webSocket(this.URLws);
-    this.wsSubject.subscribe(
-      (msg) => {
-        this.parseAnswer(msg);
-
-      },
-      (err) => console.log(err),
-      () => console.log('complete')
-    );
 
     this.filterFilm = new Film();
     this.pages = 0;
@@ -62,7 +49,7 @@ export class FilmsService {
 
   getFilms() {
 
-   /* const httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Accept-Encoding': 'gzip'
@@ -76,28 +63,9 @@ export class FilmsService {
       }
     );
 
-    this.filterFilm.name = "";*/
-    console.log("json: " +JSON.stringify(this.filterFilm));
-    this.filterFilm.limit = "6";
-    this.wsSubject.next(JSON.stringify(this.filterFilm));
-
-    this.filterFilm.limit = "0";
-    this.wsSubject.next(JSON.stringify(this.filterFilm));
-
-    this.filterFilm.name = null;
+    this.filterFilm.name = "";
   }
 
-
-
-/*  parseAnswer(msg) {
-    // this.pages = 0;
-    this.currentPage = 0;
-    this.films = msg;
-    this.pages = Math.ceil(this.films.length / this.numSelector);
-    console.log("length: " + this.films.length);
-    this.pageSubject.next(this.films.slice(this.currentPage, this.numSelector));
-
-  }*/
 
 
   parseAnswer(msg) {
@@ -115,4 +83,3 @@ export class FilmsService {
     this.pageSubject.next(this.films.slice(((number - 1) * this.numSelector), ((number - 1) * this.numSelector) + (this.numSelector) ));
   }
 }
-
